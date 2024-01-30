@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section id="gallery_main">
+    <div class="about_main clearfix" style="height: 350px">
+        <div class="container d-flex align-items-center justify-content-center" style="height: 100%;  text-align: center;">
+            <div class="gallery_main_1 text-white mt-4  " >
+                <h2 style="color: #0ce538;">GALLERY</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="gallery">
+    <div class="container">
+        <div class="row">
+            {% for my_gallary in gallery %}
+            <div class="col-sm-4">
+                <div class="ih-item square effect5 left_to_right">
+                    <a href="#">
+                        <div class="img"><img src="{{ my_gallary.gallery_img.url }}" width="100%" alt="g1"></div>
+                        <div class="info">
+                            <h3>{{my_gallary.gallery_title }}</h3>
+                            <p>{{my_gallary.gallery_description }}</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+

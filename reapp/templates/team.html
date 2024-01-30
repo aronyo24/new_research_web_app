@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section id="gallery_main">
+    <div class="about_main clearfix" style="height: 350px">
+        <div class="container d-flex align-items-center justify-content-center" style="height: 100%;  text-align: center;">
+            <div class="gallery_main_1 text-white mt-4  " >
+                <h2 style="color: #0ce538;">TEAM</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="Team">
+    <div class="team-boxed">
+        <div class="container">
+            <div class="intro">
+                <h1 class="text-center">Meet our team</h1>
+            </div>
+            <div class="row people">
+
+
+
+                <div class="col-md-6 col-lg-3 item">
+                    {% for team_member in team %}
+                    <div class="box">
+                        <img class="rounded-circle" data-bs-hover-animate="pulse" src="{{ team_member.member_img.url }}">
+                        <h3 class="name">{{ team_member.member_name }}</h3>
+                        <p class="description">{{ team_member.member_title }} / {{ team_member.department }}</p>
+                        <p class=" title"><br>{{ team_member.institution }}<br><br></p>
+
+                           <a  style="font-size: 30px" href="{{ team_member.linkedin_url }}"><i class="lab la-linkedin"></i></a>
+                           <a style="font-size: 30px" href="{{ team_member.facebook_url }}"><i class="lab la-facebook-square"></i></a>
+                           <a style="font-size: 30px" href="{{ team_member.github_url }}"><i class="lab la-github-square"></i></a>
+                           <a  style="font-size: 30px"href="{{ team_member.website_url }}"><i class="las la-globe-africa"></i></a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+
